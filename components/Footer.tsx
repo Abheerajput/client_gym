@@ -18,7 +18,7 @@ const Footer = () => {
     const element = document.querySelector(sectionId);
     if (element) {
       const navHeight = 80;
-      const targetPosition = element.offsetTop - navHeight;
+      const targetPosition = (element as HTMLElement).offsetTop - navHeight;
       
       window.scrollTo({
         top: targetPosition,

@@ -26,7 +26,7 @@ const Hero = () => {
   }, [fullText]);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.querySelector(sectionId);
+    const element = document.querySelector<HTMLElement>(sectionId);
     if (element) {
       const navHeight = 80;
       const targetPosition = element.offsetTop - navHeight;
