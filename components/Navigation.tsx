@@ -30,7 +30,7 @@ const Navigation = () => {
     const element = document.querySelector(href);
     if (element) {
       const navHeight = 80;
-      const targetPosition = element.offsetTop - navHeight;
+      const targetPosition = (element as HTMLElement).offsetTop - navHeight;
       
       window.scrollTo({
         top: targetPosition,
@@ -82,10 +82,10 @@ const Navigation = () => {
                className="text-gray-600 hover:text-blue-600 transition-colors">
               <Linkedin size={20} />
             </a>
-            <a href={socialLinks.twitter} target="_blank" rel="noopener noreferrer"
+            {/* <a href={socialLinks.twitter} target="_blank" rel="noopener noreferrer"
                className="text-gray-600 hover:text-blue-400 transition-colors">
               <Twitter size={20} />
-            </a>
+            </a> */}
             <a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer"
                className="text-gray-600 hover:text-pink-600 transition-colors">
               <Instagram size={20} />
@@ -132,10 +132,10 @@ const Navigation = () => {
                  className="text-gray-600 hover:text-blue-600 transition-colors">
                 <Linkedin size={20} />
               </a>
-              <a href={socialLinks.twitter} target="_blank" rel="noopener noreferrer"
+              {/* <a href={socialLinks.twitter} target="_blank" rel="noopener noreferrer"
                  className="text-gray-600 hover:text-blue-400 transition-colors">
                 <Twitter size={20} />
-              </a>
+              </a> */}
               <a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer"
                  className="text-gray-600 hover:text-pink-600 transition-colors">
                 <Instagram size={20} />
