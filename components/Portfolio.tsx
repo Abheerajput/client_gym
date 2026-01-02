@@ -1,177 +1,206 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import { ExternalLink, Github, Filter } from 'lucide-react';
-import { projects } from '@/lib/data';
+import React, { useEffect, useRef } from 'react';
+import {
+  Activity,
+  ArrowRight,
+  Zap,
+  Target,
+  Dumbbell,
+  Flame,
+  Globe,
+  MoveUpRight,
+} from 'lucide-react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-const Portfolio = () => {
-  const [activeFilter, setActiveFilter] = useState('All');
-  const [filteredProjects, setFilteredProjects] = useState(projects);
-  const [isVisible, setIsVisible] = useState(false);
+gsap.registerPlugin(ScrollTrigger);
 
-  const categories = ['All', 'MERN', 'Next.js', 'Web Development'];
+const Programs = () => {
+  const sectionRef = useRef<HTMLDivElement | null>(null);
 
+  // Training Programs Data
+  const trainingPrograms = [
+    {
+      id: 1,
+      title: 'Hybrid Strength',
+      category: 'Performance',
+      description:
+        'Elite level powerlifting meets functional hypertrophy. Designed to build raw power and a bulletproof physique.',
+      image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48',
+      icon: <Dumbbell size={24} />,
+    },
+    {
+      id: 2,
+      title: 'Metabolic Burn',
+      category: 'Fat Loss',
+      description:
+        'High-intensity metabolic conditioning (MetCon) designed to torch calories and improve VO2 max.',
+      image: 'https://images.unsplash.com/photo-1549060279-7e168fcee0c2',
+      icon: <Flame size={24} />,
+    },
+    {
+      id: 3,
+      title: 'Functional Flow',
+      category: 'Mobility',
+      description:
+        'Advanced yoga and corrective exercise to enhance range of motion and accelerate recovery cycles.',
+      image: 'https://images.unsplash.com/photo-1552674605-db6ffd4facb5',
+      icon: <Activity size={24} />,
+    },
+    {
+      id: 4,
+      title: 'Personal Coaching',
+      category: '1-on-1',
+      description:
+        'Bespoke 1-on-1 programming tailored to your specific biomechanics and performance goals.',
+      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b',
+      icon: <Target size={24} />,
+    },
+    {
+      id: 5,
+      title: 'Digital Athlete',
+      category: 'Online',
+      description:
+        'Remote programming and nutrition protocols delivered via our elite performance app.',
+      image: 'https://images.unsplash.com/photo-1594882645126-14020914d58d',
+      icon: <Globe size={24} />,
+    },
+    {
+      id: 6,
+      title: 'Athletic Conditioning',
+      category: 'Sports',
+      description:
+        'Explosive speed, agility, and endurance protocols built for athletes who demand peak on-field performance.',
+      image: 'https://images.unsplash.com/photo-1518611012118-696072aa579a',
+      icon: <Zap size={24} />,
+    },
+  ];
+
+  // GSAP Animation
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
+    const ctx = gsap.context(() => {
+      gsap.from('.program-card', {
+        y: 60,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top 70%',
+        },
+      });
+    }, sectionRef);
 
-    const element = document.getElementById('portfolio');
-    if (element) observer.observe(element);
-
-    return () => observer.disconnect();
+    return () => ctx.revert();
   }, []);
 
-  useEffect(() => {
-    if (activeFilter === 'All') {
-      setFilteredProjects(projects);
-    } else {
-      setFilteredProjects(projects.filter(project => project.category === activeFilter));
-    }
-  }, [activeFilter]);
-
   return (
-    <section id="portfolio" className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            My Portfolio
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            A showcase of projects that demonstrate my expertise in modern web development 
-            and problem-solving capabilities.
+    <section
+      ref={sectionRef}
+      id="programs"
+      className="py-24 md:py-32 bg-[#0F0F0F] text-white"
+    >
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Header */}
+        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+          <div className="max-w-xl">
+            <div className="flex items-center gap-2 mb-4 text-[#1DB954]">
+              <Zap size={18} fill="#1DB954" />
+              <span className="text-xs uppercase font-black tracking-[0.4em]">
+                Training Protocols
+              </span>
+            </div>
+
+            <h2 className="text-5xl md:text-7xl font-bold tracking-tight leading-[0.9]">
+              Specialized <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1DB954] to-emerald-200">
+                Programs.
+              </span>
+            </h2>
+          </div>
+
+          <p className="text-gray-400 text-lg max-w-sm leading-relaxed border-l border-white/10 pl-6 mb-2">
+            Scientifically backed methodologies designed for longevity and
+            explosive results.
           </p>
         </div>
 
-        {/* Filter Buttons */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setActiveFilter(category)}
-              className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
-                activeFilter === category
-                  ? 'bg-blue-600 text-white shadow-lg transform scale-105'
-                  : 'bg-white text-gray-700 hover:bg-gray-100 shadow-md'
-              }`}
-            >
-              <Filter className="inline mr-2" size={16} />
-              {category}
-            </button>
-          ))}
-        </div>
+        {/* Programs Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6">
+          {trainingPrograms.map((program, index) => {
+            const isLarge = index % 3 === 0;
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project, index) => (
-            <div
-              key={project.id}
-              className={`group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 ${
-                isVisible 
-                  ? 'opacity-100 translate-y-0' 
-                  : 'opacity-0 translate-y-10'
-              }`}
-              style={{ 
-                transitionDelay: isVisible ? `${index * 100}ms` : '0ms' 
-              }}
-            >
-              {/* Project Image */}
-              <div className="relative overflow-hidden h-48">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">
-                  <a
-                    href={project.liveDemo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-3 bg-white rounded-full text-gray-800 hover:bg-gray-100 transition-colors transform hover:scale-110"
-                  >
-                    <ExternalLink size={20} />
-                  </a>
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-3 bg-white rounded-full text-gray-800 hover:bg-gray-100 transition-colors transform hover:scale-110"
-                  >
-                    <Github size={20} />
-                  </a>
+            return (
+              <div
+                key={program.id}
+                className={`program-card group relative overflow-hidden rounded-[32px] bg-[#161616] border border-white/5 h-[500px] ${
+                  isLarge ? 'lg:col-span-7' : 'lg:col-span-5'
+                }`}
+              >
+                {/* Background */}
+                <div className="absolute inset-0 z-0">
+                  <img
+                    src={program.image}
+                    alt={program.title}
+                    className="w-full h-full object-cover opacity-50 grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0F0F0F] via-[#0F0F0F]/40 to-transparent" />
                 </div>
-              </div>
 
-              {/* Project Content */}
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-3">
-                  <span className="px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">
-                    {project.category}
-                  </span>
-                </div>
-                
-                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
-                  {project.title}
-                </h3>
-                
-                <p className="text-gray-600 mb-4 line-clamp-3">
-                  {project.description}
-                </p>
+                {/* Content */}
+                <div className="relative z-10 h-full p-8 md:p-12 flex flex-col justify-between">
+                  <div className="flex justify-between items-start">
+                    <div className="w-12 h-12 bg-[#1DB954] rounded-2xl flex items-center justify-center text-[#0F0F0F]">
+                      {program.icon}
+                    </div>
 
-                {/* Technologies */}
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full"
-                    >
-                      {tech}
+                    <span className="bg-white/10 backdrop-blur-md px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest border border-white/10">
+                      {program.category}
                     </span>
-                  ))}
-                </div>
+                  </div>
 
-                {/* Project Links */}
-                <div className="flex items-center space-x-4">
-                  <a
-                    href={project.liveDemo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center text-blue-600 hover:text-blue-800 font-medium transition-colors"
-                  >
-                    <ExternalLink size={16} className="mr-1" />
-                    Live Demo
-                  </a>
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center text-gray-600 hover:text-gray-800 font-medium transition-colors"
-                  >
-                    <Github size={16} className="mr-1" />
-                    Code
-                  </a>
+                  <div>
+                    <h3 className="text-3xl md:text-4xl font-bold mb-4 italic group-hover:text-[#1DB954] transition-colors">
+                      {program.title}
+                    </h3>
+
+                    <p className="text-gray-400 text-sm md:text-base max-w-md mb-8 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                      {program.description}
+                    </p>
+
+                    <button className="flex items-center gap-3 text-white text-[11px] font-black uppercase tracking-[0.2em] group/btn">
+                      Explore Program
+                      <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center group-hover/btn:bg-[#1DB954] group-hover/btn:border-[#1DB954] transition-all">
+                        <ArrowRight
+                          size={14}
+                          className="group-hover/btn:text-[#0F0F0F]"
+                        />
+                      </div>
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
-        {filteredProjects.length === 0 && (
-          <div className="text-center py-12">
-            <p className="text-gray-500 text-lg">No projects found for this category.</p>
-          </div>
-        )}
+        {/* Footer CTA */}
+        <div className="mt-16 flex justify-center">
+          <button className="flex items-center gap-4 bg-white/5 hover:bg-white/10 border border-white/10 px-10 py-5 rounded-full transition-all group">
+            <span className="text-xs font-black uppercase tracking-widest">
+              Compare All Protocols
+            </span>
+            <MoveUpRight
+              size={18}
+              className="text-[#1DB954] group-hover:rotate-45 transition-transform"
+            />
+          </button>
+        </div>
       </div>
     </section>
   );
 };
 
-export default Portfolio;
+export default Programs;

@@ -1,157 +1,95 @@
 'use client';
 
 import React from 'react';
-import { Github, Linkedin, Twitter, Instagram, ArrowUp, Heart } from 'lucide-react';
-import { personalInfo, socialLinks } from '@/lib/data';
+import { Instagram, Twitter, Linkedin, Youtube, ArrowUp, Zap } from 'lucide-react';
 
-const Footer = () => {
-  const currentYear = new Date().getFullYear();
-
+const FinalFooter = () => {
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.querySelector(sectionId);
-    if (element) {
-      const navHeight = 80;
-      const targetPosition = (element as HTMLElement).offsetTop - navHeight;
-      
-      window.scrollTo({
-        top: targetPosition,
-        behavior: 'smooth'
-      });
-    }
-  };
-
-  const footerLinks = [
-    { href: '#home', label: 'Home' },
-    { href: '#about', label: 'About' },
-    { href: '#portfolio', label: 'Portfolio' },
-    { href: '#services', label: 'Services' },
-    { href: '#contact', label: 'Contact' }
+  const navLinks = [
+    { title: "Performance", links: ["Protocols", "Architects", "Schedule", "Pricing"] },
+    { title: "Ecosystem", links: ["Nutrition", "Recovery", "The App", "Assessment"] },
+    { title: "Corporate", links: ["Team Training", "Partnerships", "Press", "Careers"] }
   ];
 
   return (
-    <footer className="bg-gray-900 text-white">
-      {/* Main Footer Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Brand Section */}
-          <div className="lg:col-span-2">
-            <h3 className="text-2xl font-bold mb-4">
-              {personalInfo.name}
-            </h3>
-            <p className="text-gray-400 mb-6 max-w-md">
-              {personalInfo.tagline}
+    <footer className="bg-[#050505] text-white pt-20 pb-10 border-t border-white/5">
+      <div className="max-w-7xl mx-auto px-6">
+        
+        {/* Top: Branding & Navigation */}
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-12 mb-20">
+          
+          {/* Brand Identity */}
+          <div className="col-span-2">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-8 h-8 bg-[#1DB954] rounded flex items-center justify-center">
+                <Zap size={18} className="text-black" fill="currentColor" />
+              </div>
+              <span className="text-xl font-black tracking-tighter uppercase">Vitality Lab</span>
+            </div>
+            <p className="text-gray-500 text-sm leading-relaxed max-w-xs mb-8">
+              Engineering human potential through biometrics, elite coaching, and 
+              uncompromising recovery protocols.
             </p>
-            <p className="text-gray-400 leading-relaxed max-w-md">
-              Passionate about creating exceptional web experiences with modern technologies. 
-              Always learning, always building, always improving.
-            </p>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-lg font-semibold mb-6">Quick Links</h4>
-            <ul className="space-y-3">
-              {footerLinks.map((link) => (
-                <li key={link.href}>
-                  <button
-                    onClick={() => scrollToSection(link.href)}
-                    className="text-gray-400 hover:text-white transition-colors duration-200 block"
-                  >
-                    {link.label}
-                  </button>
-                </li>
+            <div className="flex gap-4">
+              {[Instagram, Twitter, Linkedin, Youtube].map((Icon, i) => (
+                <a key={i} href="#" className="text-gray-500 hover:text-[#1DB954] transition-colors">
+                  <Icon size={20} />
+                </a>
               ))}
-            </ul>
+            </div>
           </div>
 
-          {/* Contact Info */}
-          <div>
-            <h4 className="text-lg font-semibold mb-6">Get In Touch</h4>
-            <div className="space-y-3">
-              <a
-                href={`mailto:${personalInfo.email}`}
-                className="text-gray-400 hover:text-white transition-colors duration-200 block"
-              >
-                {personalInfo.email}
-              </a>
-              <a
-                href={`tel:${personalInfo.phone}`}
-                className="text-gray-400 hover:text-white transition-colors duration-200 block"
-              >
-                {personalInfo.phone}
-              </a>
-              <p className="text-gray-400">
-                {personalInfo.location}
-              </p>
+          {/* Quick Links Sections */}
+          {navLinks.map((section, idx) => (
+            <div key={idx} className="col-span-1">
+              <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-[#1DB954] mb-6">
+                {section.title}
+              </h4>
+              <ul className="space-y-4">
+                {section.links.map((link) => (
+                  <li key={link}>
+                    <a href={`#${link.toLowerCase()}`} className="text-gray-500 text-sm hover:text-white transition-colors">
+                      {link}
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
+          ))}
 
-            {/* Social Links */}
-            <div className="flex items-center space-x-4 mt-6">
-              <a
-                href={socialLinks.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors duration-200 p-2 hover:bg-gray-800 rounded-full"
-              >
-                <Github size={20} />
-              </a>
-              <a
-                href={socialLinks.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-blue-400 transition-colors duration-200 p-2 hover:bg-gray-800 rounded-full"
-              >
-                <Linkedin size={20} />
-              </a>
-              {/* <a
-                href={socialLinks.twitter}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-blue-400 transition-colors duration-200 p-2 hover:bg-gray-800 rounded-full"
-              >
-                <Twitter size={20} />
-              </a> */}
-              <a
-                href={socialLinks.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-pink-400 transition-colors duration-200 p-2 hover:bg-gray-800 rounded-full"
-              >
-                <Instagram size={20} />
-              </a>
-            </div>
+          {/* Back to Top (Desktop) */}
+          <div className="col-span-1 flex flex-col items-end justify-start">
+            <button 
+              onClick={scrollToTop}
+              className="group flex items-center gap-3 text-[10px] font-black uppercase tracking-widest text-gray-500 hover:text-white transition-all"
+            >
+              Back to Top
+              <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:border-[#1DB954] group-hover:bg-[#1DB954] group-hover:text-black transition-all">
+                <ArrowUp size={16} />
+              </div>
+            </button>
           </div>
         </div>
-      </div>
 
-      {/* Bottom Bar */}
-      <div className="border-t border-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex flex-col sm:flex-row items-center justify-between">
-            <div className="flex items-center text-gray-400 text-sm mb-4 sm:mb-0">
-              <p>© {currentYear} {personalInfo.name}. Made with</p>
-              <Heart size={16} className="mx-2 text-red-400 fill-current" />
-              <p>using Next.js & Tailwind CSS</p>
-            </div>
+        {/* Bottom: Legal & Small Print */}
+        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="text-[10px] text-gray-600 font-bold uppercase tracking-widest text-center md:text-left">
+            © 2026 Vitality Performance Lab. Engineered for Excellence.
+          </div>
+          
+          <div className="flex gap-8 text-[10px] font-black uppercase tracking-[0.2em] text-gray-600">
+            <a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a>
+            <a href="/terms" className="hover:text-white transition-colors">Terms of Service</a>
+            <a href="/cookies" className="hover:text-white transition-colors">Cookie Settings</a>
+          </div>
 
-            {/* Back to Top Button */}
-            <button
-              onClick={scrollToTop}
-              className="flex items-center text-gray-400 hover:text-white transition-colors duration-200 group"
-            >
-              <span className="mr-2 text-sm">Back to top</span>
-              <ArrowUp 
-                size={20} 
-                className="group-hover:-translate-y-1 transition-transform duration-200" 
-              />
-            </button>
+          {/* Status Indicator */}
+          <div className="flex items-center gap-2">
+            <div className="w-1.5 h-1.5 rounded-full bg-[#1DB954] animate-pulse" />
+            <span className="text-[9px] font-black uppercase tracking-widest text-gray-500">System Functional</span>
           </div>
         </div>
       </div>
@@ -159,4 +97,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default FinalFooter;

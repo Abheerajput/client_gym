@@ -1,14 +1,165 @@
+
 export const personalInfo = {
-  name: "Abhishek Rajput",
-  tagline: "Full Stack Developer | MERN & Next.js Specialist",
-  email: "abhishektanwer013@gmail.com",
-  phone: "8278224150",
-  location: "Hisar,Haryana",
-  bio: "Passionate Full Stack Developer with 1+ years of experience building scalable web applications. I specialize in the MERN stack and Next.js, creating seamless user experiences and robust backend systems. I'm committed to writing clean, maintainable code and staying current with the latest web technologies.",
-  image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400",
-  resume: "/resume.pdf"
+  name: "Julianne Sterling",
+  bio: "With over a decade behind the lens, I specialize in capturing the intersection of light and human emotion. My work has taken me from the high-fashion runways of Milan to the serene landscapes of the Saharan desert. I believe every frame should tell a story that words cannot reach.",
+  location: "New York / Remote",
+  email: "hello@juliannesterling.com",
+  phone: "+1 (555) 000-1234",
+  studioHours: "Mon - Fri, 10am - 6pm EST",
+  socials: {
+    instagram: "@jsterling_visuals",
+    behance: "jsterling",
+    linkedin: "juliannesterling"
+  },
+  experience: "12+ Years",
+  image:"https://plus.unsplash.com/premium_photo-1741413963511-b46714133ffc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fG1vZGFsJTIwZ2lybHxlbnwwfHwwfHx8MA%3D%3D"
 };
 
+export const skills = [
+  { name: "Editorial Photography", level: 95, icon: "📖" },
+  { name: "Cinematic Lighting", level: 90, icon: "💡" },
+  { name: "Post-Processing", level: 92, icon: "🖥️" },
+  { name: "Creative Direction", level: 88, icon: "🎨" },
+  { name: "Analog 35mm", level: 85, icon: "🎞️" },
+];
+
+export const timeline = [
+  {
+    year: "2021 - Present",
+    title: "Senior Visual Lead",
+    company: "Luxe Magazine",
+    description: "Overseeing global editorial campaigns and defining the visual language for luxury lifestyle features."
+  },
+  {
+    year: "2018 - 2021",
+    title: "Freelance Fashion Photographer",
+    company: "Europe/Asia",
+    description: "Collaborated with boutique brands to create evocative lookbooks and digital advertising content."
+  },
+];
+export const projects = [
+  {
+    id: 1,
+    title: "Vogue Noir: Milan Fashion Week",
+    category: "Editorial",
+    description: "A high-contrast monochrome series capturing the frantic energy behind the curtains of the world's most prestigious runways. Featured in Vogue Italy.",
+    image: "https://images.unsplash.com/photo-1509631179647-0177331693ae",
+    technologies: ["B&W", "Leica M11", "High Contrast"],
+    liveDemo: "#",
+    github: "#"
+  },
+  {
+    id: 2,
+    title: "The Golden Hour in Tuscany",
+    category: "Landscape",
+    description: "An exploration of natural light and shadow in the rolling hills of Italy. This series focuses on the 'Blue Hour' and 'Golden Hour' transitions.",
+    image: "https://images.unsplash.com/photo-1470770841072-f978cf4d019e",
+    technologies: ["Natural Light", "Phase One", "Landscape"],
+    liveDemo: "#",
+    github: "#"
+  },
+  {
+    id: 3,
+    title: "Celestial Architecture",
+    category: "Commercial",
+    description: "Modernist skyscrapers meet long-exposure night skies. A commission for Global Real Estate showcasing architectural symmetry.",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab",
+    technologies: ["Long Exposure", "Drone Photography", "Sony A7RIV"],
+    liveDemo: "#",
+    github: "#"
+  },
+  {
+    id: 4,
+    title: "Fragments of Time",
+    category: "Portrait",
+    description: "Close-up macro portraiture focusing on the stories told through human eyes. A study in texture and extreme detail.",
+    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2",
+    technologies: ["Macro", "Studio Lighting", "Portraiture"],
+    liveDemo: "#",
+    github: "#"
+  },
+  {
+    id: 5,
+    title: "Urban Neon Soul",
+    category: "Street",
+    description: "Cyberpunk-inspired street photography through the rain-slicked alleys of Tokyo. Exploring color theory and neon saturation.",
+    image: "https://images.unsplash.com/photo-1721206625310-5fe6854961d8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bW9kYWx8ZW58MHx8MHx8fDA%3D",
+    technologies: ["Color Grading", "Street", "Night Life"],
+    liveDemo: "#",
+    github: "#"
+  },
+  {
+  id: 6,
+  title: "Echoes of the Sahara",
+  category: "Travel",
+  description: "A documentary-style travel series capturing nomadic life, vast dunes, and minimalistic compositions under extreme desert light.",
+  image: "https://images.unsplash.com/photo-1501785888041-af3ef285b470",
+  technologies: ["Documentary", "Natural Light", "Wide Angle"],
+  liveDemo: "#",
+  github: "#"
+},
+{
+  id: 7,
+  title: "Stillness Beneath the Waves",
+  category: "Underwater",
+  description: "An underwater photography project focusing on motion, silence, and marine life behavior using controlled breath-hold techniques.",
+  image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
+  technologies: ["Underwater Housing", "Freediving", "Wide Aperture"],
+  liveDemo: "#",
+  github: "#"
+},
+{
+  id: 8,
+  title: "Rituals of the Himalayas",
+  category: "Cultural",
+  description: "An intimate visual narrative documenting ancient Himalayan rituals, monks, and spiritual ceremonies in high-altitude monasteries.",
+  image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
+  technologies: ["Photojournalism", "Low Light", "Telephoto"],
+  liveDemo: "#",
+  github: "#"
+},
+{
+  id: 9,
+  title: "Minimal Forms",
+  category: "Abstract",
+  description: "A minimalist abstract series focusing on geometric balance, negative space, and architectural simplicity.",
+  image: "https://images.unsplash.com/photo-1491553895911-0055eca6402d",
+  technologies: ["Minimalism", "Composition", "Architecture"],
+  liveDemo: "#",
+  github: "#"
+},
+{
+  id: 10,
+  title: "Velocity",
+  category: "Sports",
+  description: "High-speed sports photography capturing raw athletic motion, sweat, and intensity using ultra-fast shutter techniques.",
+  image: "https://images.unsplash.com/photo-1502877338535-766e1452684a",
+  technologies: ["High Shutter Speed", "Sports", "Action"],
+  liveDemo: "#",
+  github: "#"
+},
+{
+  id: 11,
+  title: "Frozen Silence",
+  category: "Nature",
+  description: "A winter landscape series documenting the stark silence of snow-covered forests and frozen lakes in sub-zero conditions.",
+  image: "https://images.unsplash.com/photo-1482192596544-9eb780fc7f66",
+  technologies: ["Cold Weather", "Tripod", "Long Exposure"],
+  liveDemo: "#",
+  github: "#"
+},
+{
+  id: 12,
+  title: "Faces of the Market",
+  category: "Street",
+  description: "Candid portraits of street vendors and customers showcasing raw expressions and everyday commerce across global markets.",
+  image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
+  technologies: ["Candid", "Street Portraits", "Prime Lens"],
+  liveDemo: "#",
+  github: "#"
+}
+
+];
 export const socialLinks = {
   linkedin: "https://www.linkedin.com/in/abhishek-rajput-248b29283/",
   github: "https://github.com/Abheerajput", 
@@ -16,157 +167,60 @@ export const socialLinks = {
   instagram: "https://www.instagram.com/abhee_tanwar/"
 };
 
-export const skills = [
-  { name: "React", level: 95, icon: "⚛️" },
-  { name: "Next.js", level: 90, icon: "▲" },
-  { name: "Node.js", level: 88, icon: "🟢" },
-  { name: "MongoDB", level: 85, icon: "🍃" },
-  { name: "Tailwind CSS", level: 92, icon: "🎨" },
-  { name: "TypeScript", level: 87, icon: "📘" },
-  { name: "Nest.js", level: 82, icon: "🔺" },
-  { name: "JS", level: 80, icon: "" }
-];
 
-export const timeline = [
-  {
-    year: "2024 - Present",
-    title: "Full Stack Developer",
-    company: "Delaine",
-    description: "Leading development of scalable web applications using MERN stack and Next.js. Mentoring  developers and architecting complex systems."
-  },
-  // {
-  //   year: "2021 - 2023", 
-  //   title: "Full Stack Developer",
-  //   company: "Digital Solutions Co.",
-  //   description: "Developed responsive web applications and RESTful APIs. Collaborated with cross-functional teams to deliver high-quality software solutions."
-  // },
-  // {
-  //   year: "2019 - 2021",
-  //   title: "Frontend Developer",
-  //   company: "Creative Web Studio",
-  //   description: "Built interactive user interfaces using React and modern CSS frameworks. Focused on performance optimization and responsive design."
-  // },
-  // {
-  //   year: "2015 - 2019",
-  //   title: "Computer Science Degree",
-  //   company: "University of California",
-  //   description: "Bachelor's degree in Computer Science with focus on software engineering and web technologies."
-  // }
-];
 
-export const projects = [
-  {
-    id: 1,
-    title: "Health & Wellness",
-    description: " Repxx Is your all-in-one fitness and wellness platform built for athletes, bodybuilders, and fitness enthusiasts. We combine science and strength through expert-backed workout programs, nutrition plans, and supplement education.",
-    image: "https://images.pexels.com/photos/1153370/pexels-photo-1153370.jpeg",
-    technologies: ["React", "Node.js", "MongoDB","Tailwind css"],
-    category: "MERN",
-    liveDemo: "https://repxx.in/",
-    // github: "https://github.com/johnsmith/ecommerce-platform"
-  },
-  {
-    id: 2,
-    title: "Regency Wills",
-    description: "a UK-based online platform that makes creating legal Wills, Lasting Powers of Attorney (LPAs), and Trusts simple and accessible. The platform guides users through a clear, step-by-step process to ensure everything is done properly and in line with the law.",
-    image: "https://media.istockphoto.com/id/1673747864/photo/client-was-listening-to-a-lawyer-advising-explaining-the-details-of-the-proceeding.jpg?s=612x612&w=0&k=20&c=ZC5EKe6Ce9MLnN4ryjBYPpC8gA36_iD_5fNu4egq3Q0=",
-    technologies: ["Next.js", "TypeScript", "Tailwind css", "Mongo Db"],
-    category: "Next.js",
-    liveDemo: "https://regencywills.co.uk/ ",
-    // github: "https://github.com/johnsmith/task-manager"
-  },
-  {
-    id: 3,
-    title: "Loan Management & Role-Based Platform",
-    description: " Developed a loan management web application that connects borrowers and lenders through a role-based onboarding system. Users can register as Borrower, Lender, Lawyer, or Key Partner, each with customized dashboards and features.",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9E_BgXZ-ycqMyPOJ9ZBDSf8sN8pk_1L5vrg&s",
-    technologies: ["React", "node.js", "Express", "MongoDB"],
-    category: "Web Development",
-    liveDemo: "https://borrowweb.vercel.app/",
-    // github: "https://github.com/johnsmith/social-dashboard"
-  },
-  {
-    id: 4,
-    title: "Ride Booking & Matching Backend (Uber-like System)",
-    description: "Developed a ride-booking backend system inspired by Uber, enabling real-time ride creation, driver assignment, and trip management. Implemented user and driver authentication, ride request matching, and live status updates using RESTful APIs. The system handles ride lifecycle events — from ride request, driver acceptance, to completion — ensuring smooth communication between drivers and passengers.",
-    image: "https://www.sapphiresolutions.net/blog/wp-content/uploads/2022/07/Top-10-taxi-booking-apps.png",
-    technologies: ["node.js", "Express", "mongodb", "Autorize.net"],
-    category: "Next.js",
-    liveDemo: "https://play.google.com/store/apps/details?id=com.ubah_user&hl=en_IN",
-    github: "https://github.com/johnsmith/real-estate-portal"
-  },
-  {
-    id: 5,
-    title: "RKL Law and Fincen – Legal & Compliance Website",
-    description: "Designed and developed a professional web platform for RKL Law and Fincen, a law firm specializing in Business Law, BOIR Compliance, and Immigration Law. The website highlights the firm’s expertise and provides clients with an intuitive way to connect for consultations, submit inquiries, and explore key practice areas.",
-    image: "https://img.freepik.com/free-photo/gavel-scales-justice-law-books_23-2151998158.jpg?semt=ais_hybrid&w=740&q=80",
-    technologies: ["React", "Node.js", "MongoDB", "Socket.io"],
-    category: "MERN",
-    // liveDemo: "https://lms-demo.example.com",
-    github: "https://github.com/johnsmith/learning-management"
-  },
-  {
-    id: 6,
-    title: "Admin Panel Development",
-    description: "Designed and developed 5–8 scalable admin panels for various web applications, enabling efficient data management, analytics visualization, and user control. Implemented role-based authentication, CRUD operations, and API integration for real-time updates.",
-    image: "https://adminlte.io/uploads/images/blog/05/027-Gentelella-Alela-colorlib.com_.png",
-    technologies: ["Next.js", "TypeScript", "Chart.js", "React.js"],
-    category: "Web Development",
-    // liveDemo: "https://weather-app-demo.example.com",
-    // github: "https://github.com/johnsmith/weather-analytics"
-  }
-];
+
+
 
 export const services = [
   {
     id: 1,
-    title: "Web Development",
-    description: "Custom web applications built with modern frameworks like React, Next.js, and Node.js for optimal performance and user experience.",
-    icon: "🌐"
+    title: "Editorial & Fashion",
+    icon: "📸",
+    description: "High-concept visual storytelling for magazines and brands. Specialized in creating mood-driven imagery that defines brand identity."
   },
   {
     id: 2,
-    title: "Full Stack Projects",
-    description: "End-to-end development solutions including frontend, backend, database design, and deployment for complete web applications.",
-    icon: "⚡"
+    title: "Luxury Weddings",
+    icon: "💍",
+    description: "Cinematic coverage of your most precious moments. Capturing raw emotions and fine details with a timeless, high-art aesthetic."
   },
   {
     id: 3,
-    title: "UI/UX Design",
-    description: "Modern, responsive user interfaces with focus on usability, accessibility, and conversion optimization using design systems.",
-    icon: "🎨"
+    title: "Commercial Lifestyle",
+    icon: "🏙️",
+    description: "Authentic lifestyle imagery that resonates with modern audiences. Perfect for social campaigns, lookbooks, and digital marketing."
   },
   {
     id: 4,
-    title: "Custom Solutions",
-    description: "Tailored software solutions to meet specific business requirements, from MVP development to enterprise applications.",
-    icon: "🔧"
+    title: "Private Portraits",
+    icon: "👤",
+    description: "Besoke portrait sessions designed to capture your unique essence. Studio or location-based shoots with expert creative direction."
   }
 ];
-
 export const testimonials = [
   {
     id: 1,
-    name: "Sarah Johnson",
-    role: "Product Manager at TechCorp",
-    content: "John delivered exceptional work on our e-commerce platform. His attention to detail and technical expertise exceeded our expectations. The project was completed on time and within budget.",
-    avatar: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=150",
+    name: "Elena Rossi",
+    role: "Editor, Vogue Art",
+    avatar: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f",
+    content: "Working with Julianne was an absolute masterclass in light and composition. She doesn't just take photos; she captures the soul of the subject with an editorial precision that is rare to find.",
     rating: 5
   },
   {
     id: 2,
-    name: "Mike Chen",
-    role: "Startup Founder",
-    content: "Working with John was a game-changer for our startup. He built our entire platform from scratch and provided valuable insights throughout the development process. Highly recommended!",
-    avatar: "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=150",
+    name: "Marcus Thorne",
+    role: "Creative Director, Maison Luxe",
+    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e",
+    content: "The cinematic quality Julianne brought to our seasonal lookbook was beyond expectations. Her ability to blend raw authenticity with high-fashion aesthetics elevated our brand to a new level.",
     rating: 5
   },
   {
     id: 3,
-    name: "Emily Rodriguez",
-    role: "Design Director",
-    content: "John's ability to translate complex designs into functional, responsive websites is impressive. He's reliable, communicative, and delivers high-quality code every time.",
-    avatar: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150",
+    name: "Sophia & James",
+    role: "Private Clients",
+    avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9",
+    content: "Our wedding photos look like they belong in a museum. She has this incredible gift for being invisible while capturing the most intimate, ephemeral moments of the day.",
     rating: 5
   }
 ];
